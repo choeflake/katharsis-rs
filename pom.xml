@@ -5,12 +5,12 @@
     <parent>
         <groupId>io.katharsis</groupId>
         <artifactId>katharsis-parent</artifactId>
-        <version>1.0.3</version>
+        <version>1.0.4</version>
     </parent>
 
     <artifactId>katharsis-rs</artifactId>
     <version>2.1.2-SNAPSHOT</version>
-    <packaging>jar</packaging>
+    <packaging>bundle</packaging>
 
     <name>katharsis-rs</name>
     <url>https://github.com/katharsis-project/katharsis-rs</url>
@@ -44,6 +44,15 @@
                 <groupId>com.github.danielflower.mavenplugins</groupId>
                 <artifactId>gitlog-maven-plugin</artifactId>
             </plugin>
+			<plugin>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>maven-bundle-plugin</artifactId>
+				<configuration>
+					<instructions>
+						<Export-Package>io.katharsis.rs.*</Export-Package>
+					</instructions>
+				</configuration>
+			</plugin>
         </plugins>
     </build>
 
@@ -56,6 +65,11 @@
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-annotations</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.reflections</groupId>
+            <artifactId>reflections</artifactId>
+            <optional>true</optional>
         </dependency>
 
         <dependency>
